@@ -1,0 +1,82 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>jqEvent</title>
+	<script type="text/javascript" src = "jquery-1.11.2.js	"></script>
+	<script type="text/javascript" src = "baiduTemplate.js	"></script>
+	<style type="text/css">
+		.inner{
+			width: 100px;
+			height: 100px;
+			border:1px solid #000;
+			float: left;
+			margin: auto;
+			line-height: 100px;
+			text-align: center;
+			font-size: 50px;
+		}
+		#outer{
+			/*height: 150px;*/
+			border:1px solid #000;
+			display: flex;
+		}
+		table{
+			margin: auto;
+			border-collapse: collapse;
+		}
+		table td, table th{
+			border:1px solid #000;
+			width: 100px;
+			
+		}
+	</style>
+</head>
+<body>
+	<div id="outer">
+		<table>
+			<caption>班级管理系统</caption>
+			<thead>
+				<tr>
+					<th>序号</th>
+					<th>姓名</th>
+					<th>性别</th>
+				</tr>
+			</thead>
+			<tbody>
+				
+			</tbody>	
+		</table>
+
+	</div>
+	<p id="results"><b>Results: </b> </p>
+	<form>
+		<input type = "text" name = "name" />
+		<select name="single">
+		<option>Single</option>
+		<option>Single2</option>
+		</select>
+		<select name="multiple" multiple="multiple">
+		<option selected="selected">Multiple</option>
+		<option>Multiple2</option>
+		<option selected="selected">Multiple3</option>
+		</select><br/>
+		<input type="checkbox" name="check" value="check1"/> check1
+		<input type="checkbox" name="check" value="check2" checked="checked"/> check2
+		<input type="radio" name="radio" value="radio1" checked="checked"/> radio1
+		<input type="radio" name="radio" value="radio2"/> radio2
+	</form>
+</body>
+<script type="text/javascript">
+	//加载模板
+	$("tbody").load("stuList.html", function(){
+		//加载数据
+		$.getJSON("stuInfo.json", function(data){
+			//html代码
+			var htmlLStr = baidu.template("stuListTmp", data);
+			//添加数据进页面
+			$("tbody").html(htmlLStr);
+		});
+	});
+</script>
+</html>

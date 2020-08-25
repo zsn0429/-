@@ -1,0 +1,47 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>jqEvent</title>
+	
+	<style type="text/css">
+		.inner{
+			width: 100px;
+			height: 100px;
+			border:1px solid #000;
+			float: left;
+			margin: auto;
+			line-height: 100px;
+			text-align: center;
+			font-size: 50px;
+		}
+		#outer{
+			/*height: 150px;*/
+			border:1px solid #000;
+			display: flex;
+		}
+		table{
+			margin: auto;
+			border-collapse: collapse;
+		}
+		table td, table th{
+			border:1px solid #000;
+			width: 100px;
+			
+		}
+	</style>
+</head>
+<body>
+	<script type="text/javascript">
+		//window  通过实参形式传入jquery函数中，减少了window使用时去上级查找的过程， 还方便了后期将形参window压缩成单字母
+		//undefined 
+		var a,b;
+		;(function(window, undefined){
+			console.log(typeof a === "undefined");
+			console.log(a === undefined)
+		})(window);
+		//传window为了方便使用  1.在函数中少查找一步	2.实参转形参 减少代码量
+	</script>
+</body>
+
+</html>
